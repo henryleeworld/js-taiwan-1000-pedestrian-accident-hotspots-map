@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta property="og:title" content="台灣 1000 處行人事故熱點地圖" />
+        <meta property="og:description" content="地點篩選是依據 2020 年至今年 6 月行人事故數據，參考運輸研究所相對嚴重度指標及相對頻率指標，針對行人事故頻率高，也就是發生件數較多與傷亡人數較多的路口排序，並套用內政部最新路網圖資進行標定，共盤點出直轄市 400 處、非直轄市 300 處、行人活動聚集區域 300 處，合計 1000 處最優先亟需改善路口。" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css" integrity="sha512-D2c/nmSVlwoZk29SLwJK8GkLyCyPuNbZ/vZQL/lNzw+o+yXzsbnJt7lK/iCfdBmgyLRDi0qx27gpE8Zb1C6I7g==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="css/ol3-sidebar.css" />
+        <link rel="stylesheet" href="css/pedestrian-accident-hotspots.css" />
+        <title>台灣 1000 處行人事故熱點地圖</title>
+    </head>
+    <body>
+        <div id="sidebar" class="sidebar collapsed">
+            <div class="sidebar-tabs">
+                <ul role="tablist">
+                    <li>
+                        <a href="#home" role="tab"><i class="fa-solid fa-bars"></i></a>
+                    </li>
+                    <li>
+                        <a href="#book" role="tab"><i class="fa-solid fa-gear"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-content">
+                <div class="sidebar-pane" id="home">
+                    <h1 class="sidebar-header">
+                        <span id="sidebarTitle">優先改善 1000 處行人事故熱點</span>
+                        <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                    </h1>
+                    <div id="sidebarContent"></div>
+                    <hr />
+                    <a href="https://www.motc.gov.tw/ch/app/news_list/view?module=news&id=14&serno=32de7207-1cf4-47f3-bf19-f256ed25cc02" target="_blank">資料來源</a>
+                </div>
+                <div class="sidebar-pane" id="book">
+                    <h1 class="sidebar-header">
+                        <span id="weekTitle">說明</span><span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                    </h1>
+                    <div>
+                        <p>
+                            地點篩選係依據 109 - 112 年 6 月行人事故數據，參考運輸研究所相對嚴重度指標及相對頻率指標，針對行人事故頻率高，也就是發生件數較多，
+                            與傷亡人數較多之路口排序，並套用內政部最新路網圖資進行標定，共盤點出直轄市 400 處、非直轄市 300 處、行人活動聚集區域 300 處， 合計 1,000 處最優先亟需改善路口
+                        </p>
+                        <ul>
+                            <li>每個三角形代表一處指定路口</li>
+                            <li>放大地圖看到的三個數字分別為 '死亡人數' / '受傷人數' / '事故件數'</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="map" class="map"></div>
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.4/ol.js" defer></script>
+        <script src="js/ol3-sidebar.js" defer></script>
+        <script src="js/pedestrian-accident-hotspots.js" defer></script>
+    </body>
+</html>
